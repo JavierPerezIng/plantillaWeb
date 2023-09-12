@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ASFALTOS AGREGADOS Y CONSTRUCCIONES S.A.S.</title>
+    <style>
+        /* Estilos básicos para la página web */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #12172d;
+            font-size: 16px;
+        }
+
+        .texto-justificado {
+            text-align: justify;
+        }
+
+        h1 {
+            color: #f5af32;
+        }
+        h2 {
+            color: #f5af32;
+        }
+        h3 {
+            color: #12172d;
+        }
+
+        p {
+            color: #ffffff;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        /* Estilos para el encabezado de la página web */
+        .header {
+            background-color: #12172d;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 200px;
+            height: 100px;
+        }
+
+        .nav {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+            .nav li {
+                margin-left: 20px;
+            }
+
+                .nav li a {
+                    font-weight: bold;
+                    font-family: Roboto, sans-serif; /* Cambio de fuente */
+                    color: #f5af32; /* Cambio de color */
+                    text-shadow: 1px 1px 2px black; /* Añadido efecto */
+                }
+
+        /* Estilos para el contenido principal de la página web */
+        .main {
+            padding: 40px;
+        }
+
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .intro-text {
+            width: 60%;
+        }
+
+        /* Establecer el ancho y el alto del contenedor del carrusel */
+        .carrusel {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        /* Establecer el ancho y el alto de cada elemento del carrusel */
+        .carrusel-elemento {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Fotos intro */
+            /* Establecer el primer elemento del carrusel como visible por defecto */
+            .carrusel-elemento:first-child {
+                opacity: 1;
+            }
+
+        /* Usar keyframes para animar los elementos del carrusel */
+        @keyframes carrusel {
+            /* Mostrar el siguiente elemento cada 3 segundos */
+            0%, 33% {
+                opacity: 1;
+            }
+            /* Ocultar el elemento actual después de mostrar el siguiente */
+            33.01%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Aplicar la animación a los elementos del carrusel */
+        .carrusel-elemento {
+            animation: carrusel 9s infinite;
+        }
+
+            /* Retrasar la animación de cada elemento según su índice */
+            .carrusel-elemento:nth-child(2) {
+                animation-delay: -6s;
+            }
+
+            .carrusel-elemento:nth-child(3) {
+                animation-delay: -3s;
+            }
+
+        .services {
+            scroll-behavior: smooth;
+            display: flex; /* Usamos CSS grid para crear el layout de tres columnas */
+            grid-template-columns: repeat(3, 1fr); /* Cada columna tiene el mismo ancho */
+            grid-gap: 30px; /* Hay un espacio de 30px entre las columnas */
+            margin-top: 40px;
+            overflow-x: auto; /* Permite el desplazamiento horizontal si el contenedor es más ancho que la pantalla */
+            overflow-y: hidden;
+            border: 2px solid #f5af32 ;
+        }
+        @keyframes animate-border {
+            0% {
+                border-color: #f5af32;
+                border-width: 4px;
+                border-radius: 10px
+            }
+
+            50% {
+                border-color: #4c5464;
+                border-width: 4px;
+                border-radius: 10px
+            }
+
+            100% {
+                border-color: #8c642c;
+                border-width: 4px;
+                border-radius: 10px
+            }
+        }
+        .services {
+            animation: animate-border 5s infinite;
+        }
+        /* Estilos para el contenedor para los servicios */
+        #services-container {
+            overflow-x: auto; /* Permite el desplazamiento horizontal */
+            scroll-snap-type: x mandatory; /* Activa el ajuste al desplazar */
+            background-color: #12172d;
+
+        }
+
+        .service-icon {
+            object-fit: cover;
+            width: 400px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para el pie de página de la página web */
+        .footer {
+            background-color: #233d6f;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            width: 150px;
+            height: 75px;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+            .footer-nav li {
+                margin-left: 20px;
+            }
+    </style>
+</head>
+<body>
+    <!-- Encabezado de la página web -->
+    <div class="header">
+        <!-- Logo de la empresa -->
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <!-- Menú de navegación -->
+        <ul class="nav">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal de la página web -->
+    <div class="main">
+
+        <!-- Sección de introducción -->
+        <div class="intro">
+            <!-- Texto de introducción -->
+            <div class="intro-text">
+                <h1>ASFALTOS AGREGADOS Y CONSTRUCCIONES S.A.S.</h1>
+                <p class="texto-justificado">ASA CONSTRUCCIONES S.A.S. fue constituida legalmente el 22 de Enero de 2013, por los socios NESTOR QUINTERO CORREA Y HECTOR T. VALENCIA SANCHEZ en la Ciudad de Barrancabermeja (Santander); e inscrita en la Cámara de Comercio el 14 de Febrero de 2013 con matricula mercantil No 00016960</p>
+                <p>  </p>
+                <p class="texto-justificado">Desarrollamos todos nuestros proyectos bajo el estricto cumplimiento de disposiciones técnicas, legales y reglamentarias, brindando un excelente servicio y producto a nuestros clientes; así como el desarrollo e inclusión de estrategias y políticas que nos permitan lograr una economía circular y amigable con el medio ambiente, contribuyendo con el crecimiento de los trabajadores y las comunidades presentes en el entorno donde se desarrollan los proyectos, valorando siempre la ley y el bien común por encima de cualquier tipo de ingreso económico u oportunidad de mercado.</p>
+                <p>  </p>
+
+            </div>
+
+            <!-- Imagen de introducción -->
+            <!-- Contenedor del carrusel -->
+            <div class="carrusel">
+                <!-- Elementos del carrusel -->
+                <div class="carrusel-elemento">
+                    <img src="automotor.jpeg" width=100% height=100% alt="Foto 1">
+                </div>
+                <div class="carrusel-elemento">
+                    <img src="celosia.jpeg" width=100% height=100% alt="Foto 2">
+                </div>
+                <div class="carrusel-elemento">
+                    <img src="maquinaria.jpeg" width=100% height="100% alt="Foto 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de servicios -->
+        <h1>NUESTROS SERVICIOS</h1>
+        <p class="texto-justificado">
+            ASA CONSTRUCCIONES S.A.S posee amplia experiencia en construcción de vias, adecuación, mantenimiento y rehabilitación vial,
+            construcción y adecuación de locaciones para perforación de pozos petroleros, movimientos de tierra, obras de geotecnia y recuperación ambiental,
+            construcción de muros de contención, entre otras actividades, evidenciables en nuestra experiencia contractual, contando para ello con recursos y equipos propios.
+        </p>
+        <a href="#" style="background-color: #4c4c64; color: #f5af32; padding: 10px; border-radius: 5px; ">Solicitar presupuesto</a>
+        <p>  </p>
+        <!-- Contenedor para los servicios -->
+        <div id="services-container">
+            <div class="services">
+                <!-- Servicio de planta trituradora -->
+                <div class="service">
+                    <h2>Planta trituradora</h2>
+                    <img src="logo3.png" alt="trituradora" class="service-icon">
+                    <p class="texto-justificado">Contamos con una planta de trituración que se encarga de procesar el material de río y convertirlo en agregados pétreos de alta calidad para la construcción, como base granular, subbase granular y otros tamaños según la demanda.  Nuestro sistema de triturado es de circuito cerrado, lo que nos permite optimizar el consumo de energía y reducir el impacto ambiental.</p>
+                    <p>  </p>
+                </div>
+
+                <!-- Servicio de asfalto -->
+                <div class="service">
+                    <h2>Planta de asfalto</h2>
+                    <img src="Logo3.png" alt="asfalto" class="service-icon">
+                    <p class="texto-justificado">Nuestro servicio de producción y suministro de mezclas asfálticas se adapta a las necesidades de cada cliente, ofreciendo calidad, rapidez y eficiencia. Contamos con un equipo humano altamente cualificado y comprometido con la satisfacción de nuestros clientes.</p>
+                </div>
+
+                <!-- Servicio de planta de concreto -->
+                <div class="service">
+                    <h2>Planta de concreto</h2>
+                    <img src="concreto.jpeg" alt="concreto" class="service-icon">
+                    <p class="texto-justificado">Somos una empresa especializada en la producción y suministro de concreto pre mezclado, un material que cumple con las normas de calidad y se adapta a cada proyecto. Te ofrecemos un servicio eficiente y económico, con camiones mezcladores que evitan el desperdicio y personal capacitado que te atiende de forma personalizada.</pclass="texto-justificado">
+                </div>
+
+                <!-- Servicio de equipos de pilotaje -->
+                <div class="service">
+                    <h2>Equipos de pilotaje</h2>
+                    <img src="pilotaje.png" width=100% height=100% alt="pilotaje" class="service-icon">
+                    <p class="texto-justificado">Realizamos todo tipo de obras nuevas, desde viviendas unifamiliares hasta edificios de oficinas o naves industriales. Nos encargamos de todo el proceso, desde el diseño hasta la entrega llave en mano.</p>
+                </div>
+
+                <!-- Servicio de grúa de celosia -->
+                <div class="service">
+                    <h2>Grúas de celosia</h2>
+                    <img src="celosia.jpeg" width=100% height=100% alt="celosia" class="service-icon">
+                    <p class="texto-justificado">Realizamos todo tipo de obras nuevas, desde viviendas unifamiliares hasta edificios de oficinas o naves industriales. Nos encargamos de todo el proceso, desde el diseño hasta la entrega llave en mano.</p>
+                </div>
+
+                <!-- Servicio de parque automotor -->
+                <div class="service">
+                    <h2>Parque automotor</h2>
+                    <img src="automotor.jpeg" alt="automotor" class="service-icon">
+                    <p class="texto-justificado">Realizamos todo tipo de obras nuevas, desde viviendas unifamiliares hasta edificios de oficinas o naves industriales. Nos encargamos de todo el proceso, desde el diseño hasta la entrega llave en mano.</p>
+                </div>
+
+                <!-- Servicio de maquinaria amarilla -->
+                <div class="service">
+                    <h2>Maquinaria amarilla</h2>
+                    <img src="maquinaria.jpeg" alt="maquinaria" class="service-icon">
+                    <p class="texto-justificado">Nuestro servicio de alquiler de maquinaria amarilla incluye una amplia variedad de maquinarias para la construcción y otros proyectos. Entre las maquinarias que ofrecemos se encuentran retroexcavadoras, motoniveladoras, bulldozer, cargadores, retrocargadores, vibrocompactadores, carmix, mixer, fresadora, tren de pavimentación y montacargas.</p>
+                </div>
+
+                <!-- Servicio de transporte de material -->
+                <div class="service">
+                    <h2>Transporte de material</h2>
+                    <img src="volqueta.png" alt="volqueta" class="service-icon">
+                    <p class="texto-justificado">Realizamos todo tipo de obras nuevas, desde viviendas unifamiliares hasta edificios de oficinas o naves industriales. Nos encargamos de todo el proceso, desde el diseño hasta la entrega llave en mano.</p>
+                </div>
+
+                <!-- Servicio de laboratorio -->
+                <div class="service">
+                    <h2>Laboratorio de control de calidad</h2>
+                    <img src="logo3.png" alt="lab" class="service-icon">
+                    <p class="texto-justificado">Realizamos todo tipo de obras nuevas, desde viviendas unifamiliares hasta edificios de oficinas o naves industriales. Nos encargamos de todo el proceso, desde el diseño hasta la entrega llave en mano.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <h1>NUESTROS SERVICIOS</h1>
+        <p class="texto-justificado">
+            ASA CONSTRUCCIONES S.A.S posee amplia experiencia en construcción de vias, adecuación, mantenimiento y rehabilitación vial,
+            construcción y adecuación de locaciones para perforación de pozos petroleros, movimientos de tierra, obras de geotecnia y recuperación ambiental,
+            construcción de muros de contención, entre otras actividades, evidenciables en nuestra experiencia contractual, contando para ello con recursos y equipos propios.
+        </p>
+    </div>
+
+    <!-- Pie de página de la página web -->
+    <div class="footer">
+
+        <!-- Logo de la empresa -->
+        <img src="logo3.png" alt="Logo" class="footer-logo">
+
+        <!-- Menú de navegación -->
+        <ul class="footer-nav">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+
+        <!-- Información de contacto -->
+        <div class="contact-info">
+            <p>Teléfono: </p>
+            <p>Email: </p>
+            <p>Dirección: Diagonal 56 No 18A - 88</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
